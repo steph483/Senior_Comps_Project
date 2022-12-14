@@ -68,7 +68,7 @@ public class StartCooking : MonoBehaviour
     
         IEnumerator startColorChanging()
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(60);
             nopalRenderer.material.color = Color.Lerp(nopalRenderer.material.color, cookednopalColor, 20);
             nopalesRecipe.CookedItem(gameObject.name);
         }

@@ -9,11 +9,13 @@ public class DialogueManager : MonoBehaviour
     //public Text nameText;
     public TMP_Text dialogueText;
     private Queue<string> sentences;
+    private Queue<AudioSource> v_Audios;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        v_Audios = new Queue<AudioSource>();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -22,11 +24,18 @@ public class DialogueManager : MonoBehaviour
 
         //nameText.text = dialogue.name;
 
+        //Clear out because it is playing from the start
         sentences.Clear();
+        v_Audios.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+
+        foreach (AudioSource audio in dialogue.voiceOver)
+        {
+            v_Audios.Enqueue(audio);
         }
 
         DisplayNextSentence();
@@ -42,6 +51,9 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
+
+        AudioSource audio = v_Audios.Dequeue();
+        audio.Play();
     }
 
     public void playNextMessage()
