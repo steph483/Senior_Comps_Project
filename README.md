@@ -46,3 +46,15 @@ Step 5: Open Unity project, hit the play button at the top and try out a simple 
 
 *IMPORTANT: This maps out how each type of script is used in the Scene of the game. Currently the game runs on one scene called “Working_V1”. For a script to be used it needs to be tied to an object in the Scene hierarchy of the game’s scene. Then when the game is played, Unity runs things from top to bottom based on the Scene’s hierarchy. This diagram shows how each script component, whether a specific script or a type of script (type is determined by the purpose it has for the game), ties to a specific game object or a type of game object (type is determined by what type of game object it is). For more specific on Unity’s Architecture go [here](https://github.com/UnityTechnologies/open-project-1/wiki/Game-architecture-overview)*
 
+#### The way that I have organized my objects and scripts: <br>
+I have organized all of my gameObjects into different sections in the scene hiearchy and each type of gameObject is scripted by scripts that are also seprated by type in different foldrs under "Assets/Scripts/…". The scene that these are all open in is called "Working_V1".
+
+***Scene Hierarchy(by sections)***  --------------------    ***Script Type(by folder)***<br> 
+XR Origin —----------------------------------------------->   		User Set Up/ <br> 
+Game Manager —--------------------------------------->		        GameManager.cs<br> 
+Recipes   —--------------------------------------->		           *RecipeName*Recipe.cs<br> 
+Food Game Objects —--------------------------------->		         FoodScripts/<br> 
+Kitchen Tools —------------------------------------------>		    KitchenEquip/<br> 
+UI Compoents	 —--------------------------------------->		       UI System/<br> 
+Audio Components	 —--------------------------------------->		   Audio Scripts/<br> 
+
